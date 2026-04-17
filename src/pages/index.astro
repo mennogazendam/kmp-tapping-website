@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+import { frontmatter } from '../content.md';
+
+const c = frontmatter;
 ---
 
 <Layout>
@@ -36,15 +39,13 @@ import '../styles/global.css';
   <div class="hero-pipeline" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-content">
-      <p class="section-label">Sub-Saharan Africa's Pipeline Specialists</p>
+      <p class="section-label">{c.tagline}</p>
       <h1 class="hero-title">
-        Hot Tapping &<br />
-        <span>Line Stopping</span><br />
-        Experts
+        {c.heroTitle.split('&')[0]}&<br />
+        <span>{c.heroTitle.split('&')[1].trim().split(' ').slice(0,2).join(' ')}</span><br />
+        {c.heroTitle.split('&')[1].trim().split(' ').slice(2).join(' ')}
       </h1>
-      <p class="hero-sub">
-        Live pipeline interventions with zero downtime. KMP Tapping delivers precision hot tapping and line stopping services — backed by specialist equipment and proven field experience across Sub-Saharan Africa.
-      </p>
+      <p class="hero-sub">{c.heroSub}</p>
       <div class="hero-actions">
         <a href="#services" class="btn-primary">Our Services</a>
         <a href="#contact" class="btn-ghost">Get a Quote</a>
@@ -62,22 +63,22 @@ import '../styles/global.css';
       <div class="stats-row">
         <div class="stat">
           <span class="stat-num">Zero</span>
-          <span class="stat-label">Pipeline shutdowns required</span>
+          <span class="stat-label">{c.stat1Label}</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
           <span class="stat-num">Live</span>
-          <span class="stat-label">Operations under full pressure</span>
+          <span class="stat-label">{c.stat2Label}</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
           <span class="stat-num">Africa</span>
-          <span class="stat-label">Sub-Saharan coverage</span>
+          <span class="stat-label">{c.stat3Label}</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
           <span class="stat-num">End-to-end</span>
-          <span class="stat-label">Equipment supply & execution</span>
+          <span class="stat-label">{c.stat4Label}</span>
         </div>
       </div>
     </div>
@@ -90,12 +91,10 @@ import '../styles/global.css';
 ═══════════════════════════════════════ -->
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
-    <p class="section-label">What We Do</p>
+    <p class="section-label">{c.servicesLabel}</p>
     <h2 class="section-title" id="services-heading">Our <span>Services</span></h2>
     <div class="accent-line"></div>
-    <p class="section-intro">
-      We perform complex pipeline interventions while systems remain fully pressurised and operational — eliminating costly shutdowns and production losses.
-    </p>
+    <p class="section-intro">{c.servicesIntro}</p>
 
     <div class="services-grid">
 
@@ -105,19 +104,15 @@ import '../styles/global.css';
           Hot tapping image
         </div>
         <div class="service-card-body">
-          <span class="service-tag">Core Service</span>
-          <h3>Hot Tapping</h3>
-          <p>
-            Hot tapping — also called pressure tapping — allows a new connection to be made to an existing pipeline while it remains in service under full operating pressure. No shutdown. No production loss. No disruption to downstream users.
-          </p>
-          <p>
-            We execute hot tapping on water, gas, fuel, and process pipelines across a wide range of diameters and pressure ratings, using our own certified equipment and trained operators.
-          </p>
+          <span class="service-tag">{c.service1Tag}</span>
+          <h3>{c.service1Title}</h3>
+          <p>{c.service1Body1}</p>
+          <p>{c.service1Body2}</p>
           <ul class="service-list">
-            <li>Live pressure operations — no shutdown required</li>
-            <li>Wide diameter and pressure range capability</li>
-            <li>Water, gas, fuel and process pipelines</li>
-            <li>Full site supervision and documentation</li>
+            <li>{c.service1li1}</li>
+            <li>{c.service1li2}</li>
+            <li>{c.service1li3}</li>
+            <li>{c.service1li4}</li>
           </ul>
         </div>
       </div>
@@ -128,19 +123,15 @@ import '../styles/global.css';
           Line stopping image
         </div>
         <div class="service-card-body">
-          <span class="service-tag">Core Service</span>
-          <h3>Line Stopping</h3>
-          <p>
-            Line stopping is a method of temporarily isolating a section of live pipeline to allow maintenance, repairs, or modifications — without a full system shutdown. A line stop plug is inserted through a hot tap fitting and expanded to block flow.
-          </p>
-          <p>
-            Once the work is complete, the plug is retracted and the pipeline returns to full operation. The fitting and valve remain in place as a permanent asset.
-          </p>
+          <span class="service-tag">{c.service2Tag}</span>
+          <h3>{c.service2Title}</h3>
+          <p>{c.service2Body1}</p>
+          <p>{c.service2Body2}</p>
           <ul class="service-list">
-            <li>Temporary flow isolation without system shutdown</li>
-            <li>Enables repairs and modifications on live lines</li>
-            <li>Plug retracted after work — full flow restored</li>
-            <li>Fitting and valve retained as permanent asset</li>
+            <li>{c.service2li1}</li>
+            <li>{c.service2li2}</li>
+            <li>{c.service2li3}</li>
+            <li>{c.service2li4}</li>
           </ul>
         </div>
       </div>
@@ -155,12 +146,10 @@ import '../styles/global.css';
 ═══════════════════════════════════════ -->
 <section class="section products-section" id="products" aria-labelledby="products-heading">
   <div class="container">
-    <p class="section-label">Equipment & Supply</p>
+    <p class="section-label">{c.productsLabel}</p>
     <h2 class="section-title" id="products-heading">Our <span>Products</span></h2>
     <div class="accent-line"></div>
-    <p class="section-intro">
-      We supply a full range of specialist hot tapping equipment — fittings, valves, and tapping machines — for clients who operate their own maintenance teams or need equipment for a specific project.
-    </p>
+    <p class="section-intro">{c.productsIntro}</p>
 
     <div class="products-grid">
 
@@ -170,10 +159,8 @@ import '../styles/global.css';
           Fittings image
         </div>
         <div class="product-body">
-          <h3>Hot Tapping Fittings</h3>
-          <p>
-            Weld-on and mechanical hot tapping fittings in a range of sizes and pressure ratings. Manufactured to international standards for use on steel, ductile iron, and HDPE pipelines.
-          </p>
+          <h3>{c.product1Title}</h3>
+          <p>{c.product1Body}</p>
           <a href="#contact" class="product-link">Enquire about fittings →</a>
         </div>
       </div>
@@ -184,10 +171,8 @@ import '../styles/global.css';
           Valves image
         </div>
         <div class="product-body">
-          <h3>Slimline Valves</h3>
-          <p>
-            Low-profile slimline valves designed specifically for use in hot tapping and line stopping operations. Compact design reduces machine height requirements without compromising on pressure integrity.
-          </p>
+          <h3>{c.product2Title}</h3>
+          <p>{c.product2Body}</p>
           <a href="#contact" class="product-link">Enquire about valves →</a>
         </div>
       </div>
@@ -198,10 +183,8 @@ import '../styles/global.css';
           Manual machine image
         </div>
         <div class="product-body">
-          <h3>Manual Tapping Machines</h3>
-          <p>
-            Manually operated hot tapping machines suitable for smaller diameter pipelines and lower pressure applications. Robust, portable, and field-proven.
-          </p>
+          <h3>{c.product3Title}</h3>
+          <p>{c.product3Body}</p>
           <a href="#contact" class="product-link">Enquire about machines →</a>
         </div>
       </div>
@@ -212,10 +195,8 @@ import '../styles/global.css';
           Hydraulic machine image
         </div>
         <div class="product-body">
-          <h3>Hydraulic Tapping Machines</h3>
-          <p>
-            Hydraulically driven tapping machines for larger diameters and high-pressure pipelines. Precise torque control, suitable for demanding applications where manual operation is not practical.
-          </p>
+          <h3>{c.product4Title}</h3>
+          <p>{c.product4Body}</p>
           <a href="#contact" class="product-link">Enquire about machines →</a>
         </div>
       </div>
@@ -230,12 +211,10 @@ import '../styles/global.css';
 ═══════════════════════════════════════ -->
 <section class="section projects-section" id="projects" aria-labelledby="projects-heading">
   <div class="container">
-    <p class="section-label">Proven in the Field</p>
+    <p class="section-label">{c.projectsLabel}</p>
     <h2 class="section-title" id="projects-heading">Selected <span>Projects</span></h2>
     <div class="accent-line"></div>
-    <p class="section-intro">
-      A selection of completed hot tapping and line stopping projects demonstrating our capability across industries and pipeline types.
-    </p>
+    <p class="section-intro">{c.projectsIntro}</p>
 
     <div class="projects-grid">
 
@@ -245,13 +224,13 @@ import '../styles/global.css';
           Project image
         </div>
         <div class="project-body">
-          <span class="project-tag">Water Reticulation</span>
-          <h3>Municipal Water Main — South Africa</h3>
-          <p>Hot tapping of a 600mm diameter water main under live operating pressure to install a new branch connection. Zero supply interruption to downstream users.</p>
+          <span class="project-tag">{c.project1Tag}</span>
+          <h3>{c.project1Title}</h3>
+          <p>{c.project1Body}</p>
           <div class="project-meta">
-            <span>600mm diameter</span>
+            <span>{c.project1meta1}</span>
             <span>·</span>
-            <span>Live pressure operation</span>
+            <span>{c.project1meta2}</span>
           </div>
         </div>
       </article>
@@ -262,13 +241,13 @@ import '../styles/global.css';
           Project image
         </div>
         <div class="project-body">
-          <span class="project-tag">Industrial Process</span>
-          <h3>Process Pipeline Isolation — Refinery</h3>
-          <p>Line stopping operation on a live process pipeline to enable replacement of a corroded pipe section. Full isolation achieved under operating pressure without plant shutdown.</p>
+          <span class="project-tag">{c.project2Tag}</span>
+          <h3>{c.project2Title}</h3>
+          <p>{c.project2Body}</p>
           <div class="project-meta">
-            <span>High pressure</span>
+            <span>{c.project2meta1}</span>
             <span>·</span>
-            <span>Process fluid</span>
+            <span>{c.project2meta2}</span>
           </div>
         </div>
       </article>
@@ -279,13 +258,13 @@ import '../styles/global.css';
           Project image
         </div>
         <div class="project-body">
-          <span class="project-tag">Fuel Infrastructure</span>
-          <h3>Fuel Pipeline Connection — Sub-Saharan Africa</h3>
-          <p>Hot tapping of a fuel distribution pipeline to install monitoring instrumentation. Executed on a live line with full HSSE compliance and zero product loss.</p>
+          <span class="project-tag">{c.project3Tag}</span>
+          <h3>{c.project3Title}</h3>
+          <p>{c.project3Body}</p>
           <div class="project-meta">
-            <span>Fuel pipeline</span>
+            <span>{c.project3meta1}</span>
             <span>·</span>
-            <span>HSSE critical</span>
+            <span>{c.project3meta2}</span>
           </div>
         </div>
       </article>
@@ -304,34 +283,32 @@ import '../styles/global.css';
 ═══════════════════════════════════════ -->
 <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
   <div class="container">
-    <p class="section-label">Get in Touch</p>
+    <p class="section-label">{c.contactLabel}</p>
     <h2 class="section-title" id="contact-heading">Let's <span>Talk</span></h2>
     <div class="accent-line"></div>
 
     <div class="contact-grid">
       <div class="contact-info">
-        <p class="contact-intro">
-          Whether you need a quote for a hot tapping or line stopping operation, want to discuss equipment supply, or have a project you'd like to explore — reach out directly. We respond fast.
-        </p>
+        <p class="contact-intro">{c.contactIntro}</p>
 
         <div class="contact-items">
-          <a href="tel:+27714332878" class="contact-item">
+          <a href={`tel:${c.phone.replace(/\s/g,'')}`} class="contact-item">
             <div class="contact-icon" aria-hidden="true">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div>
               <span class="contact-label">Phone & WhatsApp</span>
-              <span class="contact-value">+27 71 433 2878</span>
+              <span class="contact-value">{c.phone}</span>
             </div>
           </a>
 
-          <a href="mailto:hello@kmptapping.com" class="contact-item">
+          <a href={`mailto:${c.email}`} class="contact-item">
             <div class="contact-icon" aria-hidden="true">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
               <span class="contact-label">Email</span>
-              <span class="contact-value">hello@kmptapping.com</span>
+              <span class="contact-value">{c.email}</span>
             </div>
           </a>
 
@@ -341,12 +318,12 @@ import '../styles/global.css';
             </div>
             <div>
               <span class="contact-label">Based in</span>
-              <span class="contact-value">South Africa — Operating across Sub-Saharan Africa</span>
+              <span class="contact-value">{c.location}</span>
             </div>
           </div>
         </div>
 
-        <a href="https://wa.me/27714332878" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href={`https://wa.me/${c.phone.replace(/\D/g,'')}`} class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           Chat on WhatsApp
         </a>
@@ -370,7 +347,7 @@ import '../styles/global.css';
   <div class="container footer-inner">
     <div class="footer-logo">
       <img src="/logo.png" alt="KMP Tapping" width="120" height="36" />
-      <p>Pipeline specialists across Sub-Saharan Africa.</p>
+      <p>{c.footerTagline}</p>
     </div>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="#services">Services</a>
@@ -381,7 +358,6 @@ import '../styles/global.css';
     <p class="footer-copy">&copy; 2025 KMP Tapping. All rights reserved.</p>
   </div>
 </footer>
-
 
 </Layout>
 
@@ -1020,7 +996,6 @@ footer {
 </style>
 
 <script>
-  // Mobile nav toggle
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   toggle?.addEventListener('click', () => {
@@ -1028,7 +1003,6 @@ footer {
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Close mobile nav on link click
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       links?.classList.remove('open');
@@ -1036,7 +1010,6 @@ footer {
     });
   });
 
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
